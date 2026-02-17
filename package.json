@@ -1,7 +1,7 @@
 {
   "name": "myelectron-boilerplate",
   "version": "1.0.0",
-  "description": "",
+  "description": "MyElectron Boilerplate - Electron + React + Vite + TypeScript + Chakra UI",
   "type": "module",
   "main": "dist/main/index.js",
   "scripts": {
@@ -17,7 +17,6 @@
     "@chakra-ui/react": "^3.33.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "electron": "^40.4.1",
     "framer-motion": "^12.34.0",
     "next-themes": "^0.4.6",
     "react": "^19.2.4",
@@ -26,6 +25,7 @@
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
+    "electron": "^40.4.1",
     "@eslint/js": "^9.39.2",
     "@types/node": "^25.2.3",
     "@types/react": "^19.2.14",
@@ -41,5 +41,20 @@
     "typescript-eslint": "^8.55.0",
     "vite": "^7.3.1",
     "vite-tsconfig-paths": "^6.1.1"
+  },
+    "build": {
+    "appId": "com.yourname.myelectronapp",
+    "productName": "MyElectron Boilerplate",
+    "files": [
+      "dist/**"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   }
 }
