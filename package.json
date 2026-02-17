@@ -47,7 +47,8 @@
     "appId": "com.tuusuario.myelectronapp",
     "productName": "MyElectron Boilerplate",
     "files": [
-      "dist/**/*"
+      "dist/**/*",
+      "package.json"
     ],
     "directories": {
       "output": "release"
