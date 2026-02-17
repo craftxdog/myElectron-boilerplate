@@ -1,6 +1,15 @@
+# Dependencias
 node_modules/
+
+# Builds
 dist/
 src/dist/
 *.tsbuildinfo
+
+# Logs y temporales
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 .DS_Store
-package-lock.json
+
+# NO ignores el package-lock.json
