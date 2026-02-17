@@ -7,7 +7,6 @@ on:
 
 jobs:
   publish:
-    # Se ejecutará en tu repo siempre que hagas push a master
     runs-on: macos-latest
 
     steps:
@@ -20,10 +19,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install and build
+      - name: Install dependencies and build
         run: |
           npm install
           npm run build
+
+      - name: List dist folder contents (debug)
+        run: ls -la dist
 
       - name: Publish releases
         env:
@@ -34,5 +36,5 @@ jobs:
           CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Usamos electron-builder para empaquetar y subir a GitHub Releases
+          # Si no tienes configurados los secretos de firma, puedes comentar la línea de abajo para evitar fallos
           npm exec electron-builder -- --publish always --win --mac --linux
