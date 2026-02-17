@@ -4,15 +4,12 @@ on:
   push:
     branches:
       - master
-
 jobs:
   publish:
     runs-on: macos-latest
-
     steps:
       - name: Checkout git repo
         uses: actions/checkout@v3
-
       - name: Install Node and NPM
         uses: actions/setup-node@v3
         with:
@@ -31,13 +28,13 @@ jobs:
         run: ls -la dist
 
       - name: Publish releases
-        env:
-          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_ID_PASS }}
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
-          CSC_LINK: ${{ secrets.CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #env:
+        # APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_ID_PASS }}
+        # APPLE_ID: ${{ secrets.APPLE_ID }}
+        # APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+        # CSC_LINK: ${{ secrets.CSC_LINK }}
+        # CSC_KEY_PASSWORD: ${{ secrets.CSC_KEY_PASSWORD }}
+        # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Si no tienes configurados los secretos de firma, puedes comentar la línea de abajo para evitar fallos
           npm exec electron-builder -- --publish always --win --mac --linux

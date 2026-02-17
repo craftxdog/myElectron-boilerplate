@@ -44,7 +44,7 @@
     "vite-tsconfig-paths": "^6.1.1"
   },
   "build": {
-    "appId": "com.tuusuario.myelectronapp",
+    "appId": "com.craftxdog.myelectror",
     "productName": "MyElectron Boilerplate",
     "files": [
       "dist/**/*",
@@ -54,6 +54,9 @@
       "output": "release"
     },
     "mac": {
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "notarize": false,
       "category": "public.app-category.developer-tools",
       "target": [
         "dmg",

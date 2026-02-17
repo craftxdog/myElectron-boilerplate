@@ -33,9 +33,7 @@ async function createWindow() {
     await mainWindow.loadURL("http://localhost:5173");
     mainWindow.webContents.openDevTools();
   } else {
-    await mainWindow.loadFile(
-      new URL("../renderer/index.html", import.meta.url).pathname,
-    );
+    await mainWindow.loadFile(path.join(__dirname, "../renderer/index.html"));
   }
 
   mainWindow.once("ready-to-show", () => {
